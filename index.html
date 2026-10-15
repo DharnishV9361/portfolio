@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dharnish V | Premium AI & ML Engineer Portfolio</title>
+    <meta name="description" content="Portfolio of Dharnish V, an AI & Machine Learning Engineer specializing in Computer Vision, NLP, and Backend systems. Built with HTML, CSS, and JS.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/sections.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress"></div>
+
+    <!-- Mouse Glow Effect -->
+    <div id="cursor-glow"></div>
+
+    <!-- Loading Screen -->
+    <div id="loader" class="loading-screen">
+        <div class="loader-content">
+            <div class="loader-circle"></div>
+            <div class="loader-logo">DV</div>
+            <span class="loader-text">Loading Workspace</span>
+        </div>
+    </div>
+
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+        <div class="mobile-brand">
+            <img src="assets/images/profile.jpg" alt="Dharnish V" class="mobile-logo-img">
+            <span class="mobile-brand-name">Dharnish V</span>
+        </div>
+        <button id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation menu">
+            <svg viewBox="0 0 24 24">
+                <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-linecap="round"/>
+            </svg>
+        </button>
+    </header>
+
+    <!-- Mobile Sidebar Menu Overlay -->
+    <div id="sidebar-overlay" class="sidebar-overlay"></div>
+
+    <!-- Fixed Left Sidebar -->
+    <aside class="glass-sidebar" id="sidebar">
+        <button id="sidebar-close" class="sidebar-close-btn" aria-label="Close navigation menu">
+            <svg viewBox="0 0 24 24">
+                <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-linecap="round"/>
+            </svg>
+        </button>
+        
+        <div class="sidebar-profile">
+            <div class="profile-img-container">
+                <img src="assets/images/profile.jpg" alt="Dharnish V" class="profile-img">
+            </div>
+            <h1 class="profile-name">Dharnish V</h1>
+            <p class="profile-role">AI & ML Engineer</p>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <a href="#home" class="nav-btn active">
+                <svg viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M9 22V12h6v10"/></svg>
+                <span>Home</span>
+            </a>
+            <a href="#about" class="nav-btn">
+                <svg viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2M12 7a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
+                <span>About</span>
+            </a>
+            <a href="#academic" class="nav-btn">
+                <svg viewBox="0 0 24 24"><path d="M3 3v18h18M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg>
+                <span>Performance</span>
+            </a>
+            <a href="#experience" class="nav-btn">
+                <svg viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                <span>Experience</span>
+            </a>
+            <a href="#skills" class="nav-btn">
+                <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94z"/></svg>
+                <span>Skills</span>
+            </a>
+            <a href="#projects" class="nav-btn">
+                <svg viewBox="0 0 24 24"><path d="M16.5 9.4 7.55 4.24a1.78 1.78 0 0 0-2.5 1.55v12.42a1.78 1.78 0 0 0 2.5 1.55l8.95-5.16a1.78 1.78 0 0 0 0-3.1z"/></svg>
+                <span>Projects</span>
+            </a>
+            <a href="#education" class="nav-btn">
+                <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5zM12 15v5M6 12.5v5M18 12.5v5"/></svg>
+                <span>Education</span>
+            </a>
+            <a href="#certifications" class="nav-btn">
+                <svg viewBox="0 0 24 24"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                <span>Achievements</span>
+            </a>
+            <a href="#contact" class="nav-btn">
+                <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zM22 6l-10 7L2 6"/></svg>
+                <span>Contact</span>
+            </a>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <p>&copy; 2026 Dharnish V</p>
+        </div>
+    </aside>
+
+    <!-- Main Content Container -->
+    <main class="main-content">
+        <!-- Home Section -->
+        <section id="home">
+            <div class="particle-canvas-wrapper">
+                <canvas id="particle-canvas"></canvas>
+            </div>
+            
+            <div class="hero-content reveal">
+                <span class="hero-subtitle">Welcome to my space</span>
+                <h2 class="hero-title">Hello,<br>I'm <span>Dharnish V</span></h2>
+                
+                <div class="typing-container">
+                    <span id="typing-text"></span>
+                    <span class="typing-cursor">|</span>
+                </div>
+                
+                <p class="hero-intro">
+                    AI & Machine Learning Engineer passionate about Computer Vision, Natural Language Processing and Backend AI Systems. I enjoy transforming innovative ideas into scalable intelligent applications using Python, Spring Boot, YOLO, OpenCV and modern AI technologies.
+                </p>
+                
+                <div class="hero-actions">
+                    <a href="assets/resume/Dharnish_V.pdf" class="btn btn-primary" download="Dharnish_V_Resume.pdf">
+                        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2.5" fill="none"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                        <span>Download Resume</span>
+                    </a>
+                    <a href="#projects" class="btn btn-secondary">
+                        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2.5" fill="none"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                        <span>View Projects</span>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="scroll-indicator">
+                <span>Scroll Down</span>
+                <div class="scroll-indicator-mouse">
+                    <div class="scroll-indicator-wheel"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <div class="glass-card reveal">
+                <div class="section-header">
+                    <h2 class="section-title">About Me</h2>
+                </div>
+                
+                <div class="about-grid">
+                    <div>
+                        <p class="about-info-text">
+                            I am an Artificial Intelligence & Data Science student at KPR Institute of Engineering and Technology, கோவை (Coimbatore). With hands-on experience building computer vision, natural language processing (NLP), and backend SaaS systems, I specialize in crafting secure, highly performant products.
+                        </p>
+                        <p class="about-info-text">
+                            I bridge the gap between machine learning concepts and operational software architectures. From developing wildlife object detection systems for local hackathons to constructing website monitoring SaaS engines, I apply rigorous software design principles alongside model training cycles.
+                        </p>
+                    </div>
+                    
+                    <div class="focus-areas-container">
+                        <h3 class="focus-title">Focus Areas</h3>
+                        <div class="focus-grid">
+                            <div class="focus-card">
+                                <div class="focus-card-icon">🧠</div>
+                                <span class="focus-card-title">Machine Learning</span>
+                            </div>
+                            <div class="focus-card">
+                                <div class="focus-card-icon">👁️</div>
+                                <span class="focus-card-title">Computer Vision</span>
+                            </div>
+                            <div class="focus-card">
+                                <div class="focus-card-icon">💬</div>
+                                <span class="focus-card-title">NLP Systems</span>
+                            </div>
+                            <div class="focus-card">
+                                <div class="focus-card-icon">⚙️</div>
+                                <span class="focus-card-title">Backend Dev</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Academic Performance Section -->
+        <section id="academic">
+            <div class="glass-card reveal">
+                <div class="section-header">
+                    <h2 class="section-title">Academic Performance</h2>
+                </div>
+                
+                <div class="academic-chart-wrapper">
+                    <div class="chart-header">
+                        <div class="chart-stats">
+                            <div class="chart-stat-item">
+                                <span class="chart-stat-value">7.34</span>
+                                <span class="chart-stat-label">Current CGPA</span>
+                            </div>
+                            <div class="chart-stat-item">
+                                <span class="chart-stat-value">B.Tech AI & DS</span>
+                                <span class="chart-stat-label">Degree Specialization</span>
+                            </div>
+                        </div>
+                        
+                        <div class="chart-toggle-btn">
+                            <div id="toggle-line" class="toggle-option active">Line</div>
+                            <div id="toggle-bar" class="toggle-option">Bar</div>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <canvas id="academicChart"></canvas>
+                    </div>
+                    
+                    <div class="chart-footer-text">
+                        📈 Consistent Academic Growth Trend
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <div class="glass-card reveal">
+                <div class="section-header">
+                    <h2 class="section-title">Experience</h2>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-time">Dec 2025 – Jan 2026</div>
+                        <h3 class="timeline-title">Full Stack Developer Intern</h3>
+                        <h4 class="timeline-subtitle">Skillchemy</h4>
+                        <ul class="timeline-details">
+                            <li>Developed **FitLife**, a comprehensive fitness tracking platform with a fully responsive user interface.</li>
+                            <li>Integrated backend systems with **Firebase Firestore** for real-time user database logging and progress syncing.</li>
+                            <li>Incorporated dynamic quote delivery pipelines using **ZenQuotes API** connectivity.</li>
+                            <li>Leveraged HTML, CSS, and Vanilla JavaScript to optimize client-side rendering speeds.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <div class="glass-card reveal">
+                <div class="section-header">
+                    <h2 class="section-title">Skills & Technologies</h2>
+                </div>
+                
+                <div class="skills-grid">
+                    <!-- Programming -->
+                    <div class="skill-category-card">
+                        <h3 class="skill-category-title">Programming</h3>
+                        <div class="skill-list">
+                            <div class="skill-item">
+                                <div class="skill-item-info">
+                                    <span class="skill-item-name">Python 3.12</span>
+                                    <span class="skill-item-level">Advanced</span>
+                                </div>
+                                <div class="skill-progress-bg">
+                                    <div class="skill-progress-bar" data-progress="92"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-item-info">
+                                    <span class="skill-item-name">Java 17</span>
+                                    <span class="skill-item-level">Proficient</span>
+                                </div>
+                                <div class="skill-progress-bg">
+                                    <div class="skill-progress-bar" data-progress="82"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-item-info">
+                                    <span class="skill-item-name">JavaScript</span>
+                                    <span class="skill-item-level">Intermediate</span>
+                                </div>
+                                <div class="skill-progress-bg">
+                                    <div class="skill-progress-bar" data-progress="78"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Machine Learning -->
+                    <div class="skill-category-card">
+                        <h3 class="skill-category-title">Machine Learning</h3>
+                        <div class="skill-list">
+                            <div class="skill-item">
+                                <div class="skill-item-info">
+                                    <span class="skill-item-name">Model Training</span>
+                                    <span class="skill-item-level">Advanced</span>
+                                </div>
+                                <div class="skill-progress-bg">
+                                    <div class="skill-progress-bar" data-progress="90"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-item-info">
+                                    <span class="skill-item-name">Feature Engineering</span>
+                                    <span class="skill-item-level">Advanced</span>
+                                </div>
+                                <div class="skill-progress-bg">
+                                    <div class="skill-progress-bar" data-progress="88"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-item-info">
+                                    <span class="skill-item-name">TensorFlow / PyTorch</span>
+                                    <span class="skill-item-level">Proficient</span>
+                                </div>
+                                <div class="skill-progress-bg">
+                                    <div class="skill-progress-bar" data-progress="80"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Computer Vision -->
+                    <div class="skill-category-card">
+                        <h3 class="skill-category-title">Computer Vision</h3>
+                        <div class="skill-list">
+                            <div class="skill-item">
+                                <div class="skill-item-info">
+                                    <span class="skill-item-name">YOLOv8</span>
+                                    <span class="skill-item-level">Expert</span>
+                                </div>
+                                <div class="skill-progress-bg">
+                                    <div class="skill-progress-bar" data-progress="95"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-item-info">
+                                    <span class="skill-item-name">OpenCV</span>
+                                    <span class="skill-item-level">Advanced</span>
+                                </div>
+                                <div class="skill-progress-bg">
+                                    <div class="skill-progress-bar" data-progress="90"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-item-info">
+                                    <span class="skill-item-name">Image Processing</span>
+                                    <span class="skill-item-level">Advanced</span>
+                                </div>
+                                <div class="skill-progress-bg">
+                                    <div class="skill-progress-bar" data-progress="85"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- NLP Systems -->
+                    <div class="skill-category-card">
+                        <h3 class="skill-category-title">NLP Systems</h3>
+                        <div class="skill-list">
+                            <div class="skill-item">
+                                <div class="skill-item-info">
+                                    <span class="skill-item-name">Resume Parsing</span>
+                                    <span class="skill-item-level">Advanced</span>
+                                </div>
+                                <div class="skill-progress-bg">
+                                    <div class="skill-progress-bar" data-progress="88"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-item-info">
+                                    <span class="skill-item-name">spaCy / NLTK</span>
+                                    <span class="skill-item-level">Advanced</span>
+                                </div>
+                                <div class="skill-progress-bg">
+                                    <div class="skill-progress-bar" data-progress="86"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-item-info">
+                                    <span class="skill-item-name">Text Classification</span>
+                                    <span class="skill-item-level">Intermediate</span>
+                                </div>
+                                <div class="skill-progress-bg">
+                                    <div class="skill-progress-bar" data-progress="80"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Backend / DB -->
+                    <div class="skill-category-card">
+                        <h3 class="skill-category-title">Backend & Database</h3>
+                        <div class="skill-list">
+                            <div class="skill-item">
+                                <div class="skill-item-info">
+                                    <span class="skill-item-name">Spring Boot</span>
+                                    <span class="skill-item-level">Proficient</span>
+                                </div>
+                                <div class="skill-progress-bg">
+                                    <div class="skill-progress-bar" data-progress="84"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-item-info">
+                                    <span class="skill-item-name">REST APIs</span>
+                                    <span class="skill-item-level">Advanced</span>
+                                </div>
+                                <div class="skill-progress-bg">
+                                    <div class="skill-progress-bar" data-progress="90"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-item-info">
+                                    <span class="skill-item-name">SQL & H2 DB</span>
+                                    <span class="skill-item-level">Proficient</span>
+                                </div>
+                                <div class="skill-progress-bg">
+                                    <div class="skill-progress-bar" data-progress="85"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tools / Cloud -->
+                    <div class="skill-category-card">
+                        <h3 class="skill-category-title">Tools & Infrastructure</h3>
+                        <div class="skill-list">
+                            <div class="skill-item">
+                                <div class="skill-item-info">
+                                    <span class="skill-item-name">Git</span>
+                                    <span class="skill-item-level">Advanced</span>
+                                </div>
+                                <div class="skill-progress-bg">
+                                    <div class="skill-progress-bar" data-progress="88"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-item-info">
+                                    <span class="skill-item-name">Firebase / Firestore</span>
+                                    <span class="skill-item-level">Proficient</span>
+                                </div>
+                                <div class="skill-progress-bg">
+                                    <div class="skill-progress-bar" data-progress="82"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-item-info">
+                                    <span class="skill-item-name">VS Code / Maven</span>
+                                    <span class="skill-item-level">Advanced</span>
+                                </div>
+                                <div class="skill-progress-bg">
+                                    <div class="skill-progress-bar" data-progress="90"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <div class="section-header reveal">
+                <h2 class="section-title">Projects</h2>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- Wild Boar Detection System -->
+                <div class="glass-card project-card reveal delay-100">
+                    <div class="project-img-wrapper">
+                        <!-- Custom Premium Project SVG Drawing -->
+                        <svg class="project-svg-fallback" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100%" height="100%" fill="#07121b" />
+                            <circle cx="200" cy="90" r="45" fill="none" stroke="#00E5FF" stroke-width="1" opacity="0.3" />
+                            <circle cx="200" cy="90" r="30" fill="none" stroke="#00E5FF" stroke-width="1.5" opacity="0.5" />
+                            <path d="M120,90 H280 M200,30 V150" stroke="#00E5FF" stroke-width="0.8" opacity="0.4" />
+                            <rect x="175" y="70" width="50" height="40" rx="3" fill="none" stroke="#80FFFF" stroke-width="2" />
+                            <text x="200" y="145" fill="#00E5FF" font-size="11" font-weight="700" letter-spacing="1.5" text-anchor="middle" font-family="Outfit">LIVE DETECTOR ENGINE</text>
+                            <circle cx="215" cy="78" r="3" fill="#ff3366" />
+                        </svg>
+                    </div>
+                    
+                    <div class="project-card-content">
+                        <h3 class="project-card-title">Wild Boar Detection System</h3>
+                        <div class="tech-badges">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">YOLOv8</span>
+                            <span class="tech-badge">OpenCV</span>
+                            <span class="tech-badge">Spring Boot</span>
+                            <span class="tech-badge">REST APIs</span>
+                            <span class="tech-badge">H2 Database</span>
+                        </div>
+                        <p class="project-card-desc">
+                            Real-time computer vision system featuring YOLOv8 trained on a custom 1,200+ image dataset. Engineered a live camera inference pipeline (<100ms latency) logging wildlife events via a Spring Boot REST API. Recognized at the Thoothukudi Hackathon.
+                        </p>
+                        <div class="project-card-actions">
+                            <a href="https://github.com/DharnishV9361" class="btn btn-secondary btn-link" target="_blank">GitHub</a>
+                            <a href="#" class="btn btn-secondary btn-link">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Resume Skill Gap Analyzer -->
+                <div class="glass-card project-card reveal delay-200">
+                    <div class="project-img-wrapper">
+                        <svg class="project-svg-fallback" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100%" height="100%" fill="#07121b" />
+                            <path d="M130,50 L270,50 M130,90 L270,90 M130,130 L210,130" stroke="#00BCD4" stroke-width="2" opacity="0.3" stroke-linecap="round" />
+                            <rect x="235" y="115" width="40" height="30" rx="4" fill="none" stroke="#00E5FF" stroke-width="1.5" />
+                            <path d="M245,130h20m-10-10v20" stroke="#80FFFF" stroke-width="1.5" />
+                            <text x="200" y="30" fill="#00E5FF" font-size="11" font-weight="700" letter-spacing="1.5" text-anchor="middle" font-family="Outfit">NLP PARSING PIPELINE</text>
+                            <circle cx="115" cy="50" r="4" fill="#00E5FF" />
+                            <circle cx="115" cy="90" r="4" fill="#00E5FF" />
+                            <circle cx="115" cy="130" r="4" fill="#00E5FF" />
+                        </svg>
+                    </div>
+                    
+                    <div class="project-card-content">
+                        <h3 class="project-card-title">AI Resume Skill Gap Analyzer</h3>
+                        <div class="tech-badges">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">NLP</span>
+                            <span class="tech-badge">spaCy</span>
+                            <span class="tech-badge">NLTK</span>
+                            <span class="tech-badge">Scikit-learn</span>
+                        </div>
+                        <p class="project-card-desc">
+                            NLP system parsing CV documents and matching skills to job scopes. Combines TF-IDF semantic mappings with named entity extraction (NER) to predict role alignments, outputting ATS scores with 85%+ categorization precision.
+                        </p>
+                        <div class="project-card-actions">
+                            <a href="https://github.com/DharnishV9361" class="btn btn-secondary btn-link" target="_blank">GitHub</a>
+                            <a href="#" class="btn btn-secondary btn-link">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UpdateCheck -->
+                <div class="glass-card project-card reveal delay-300">
+                    <div class="project-img-wrapper">
+                        <svg class="project-svg-fallback" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100%" height="100%" fill="#07121b" />
+                            <path d="M70,90 Q135,20 200,90 T330,90" fill="none" stroke="#00BCD4" stroke-width="2" opacity="0.3" />
+                            <path d="M70,90 Q135,160 200,90 T330,90" fill="none" stroke="#00BCD4" stroke-width="1" opacity="0.2" />
+                            <circle cx="200" cy="90" r="6" fill="#80FFFF" />
+                            <line x1="200" y1="90" x2="230" y2="60" stroke="#00E5FF" stroke-width="1.5" />
+                            <circle cx="230" cy="60" r="3" fill="#00E5FF" />
+                            <text x="200" y="145" fill="#00E5FF" font-size="11" font-weight="700" letter-spacing="1.5" text-anchor="middle" font-family="Outfit">MONITORING ENGINE</text>
+                        </svg>
+                    </div>
+                    
+                    <div class="project-card-content">
+                        <h3 class="project-card-title">UpdateCheck Website Monitor</h3>
+                        <div class="tech-badges">
+                            <span class="tech-badge">Java 17</span>
+                            <span class="tech-badge">Spring Boot</span>
+                            <span class="tech-badge">REST APIs</span>
+                            <span class="tech-badge">Jsoup</span>
+                            <span class="tech-badge">SHA-256</span>
+                        </div>
+                        <p class="project-card-desc">
+                            Crypto-monitored scraping architecture that tracks webpage updates using Jsoup selectors and SHA-256 signatures, driving down alert false-positives by 95% across high-frequency URL configurations.
+                        </p>
+                        <div class="project-card-actions">
+                            <a href="https://github.com/DharnishV9361" class="btn btn-secondary btn-link" target="_blank">GitHub</a>
+                            <a href="#" class="btn btn-secondary btn-link">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FitLife -->
+                <div class="glass-card project-card reveal delay-400">
+                    <div class="project-img-wrapper">
+                        <svg class="project-svg-fallback" viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="100%" height="100%" fill="#07121b" />
+                            <path d="M80,130 L120,60 L160,110 L200,40 L240,140 L280,70 L320,100" fill="none" stroke="#00E5FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                            <text x="200" y="160" fill="#00E5FF" font-size="11" font-weight="700" letter-spacing="1.5" text-anchor="middle" font-family="Outfit">FITNESS TELEMETRY</text>
+                            <circle cx="200" cy="40" r="5" fill="#80FFFF" />
+                        </svg>
+                    </div>
+                    
+                    <div class="project-card-content">
+                        <h3 class="project-card-title">FitLife Fitness Platform</h3>
+                        <div class="tech-badges">
+                            <span class="tech-badge">HTML5</span>
+                            <span class="tech-badge">CSS3</span>
+                            <span class="tech-badge">JavaScript</span>
+                            <span class="tech-badge">Firebase</span>
+                            <span class="tech-badge">ZenQuotes API</span>
+                        </div>
+                        <p class="project-card-desc">
+                            Clean fitness tracking interface that utilizes Firebase Firestore endpoints to synchronize daily calories, workouts, and weights. Syncs ZenQuotes queries locally for user motivational quotes.
+                        </p>
+                        <div class="project-card-actions">
+                            <a href="https://github.com/DharnishV9361" class="btn btn-secondary btn-link" target="_blank">GitHub</a>
+                            <a href="#" class="btn btn-secondary btn-link">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+            <div class="glass-card reveal">
+                <div class="section-header">
+                    <h2 class="section-title">Education</h2>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-time">2024 – Present</div>
+                        <h3 class="timeline-title">B.Tech - Artificial Intelligence & Data Science</h3>
+                        <h4 class="timeline-subtitle">KPR Institute of Engineering and Technology</h4>
+                        <ul class="timeline-details">
+                            <li>Current CGPA: 7.34</li>
+                            <li>Relevant Areas: Artificial Intelligence, Machine Learning, Computer Vision, Natural Language Processing, Backend Development</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications">
+            <div class="section-header reveal">
+                <h2 class="section-title">Certifications & Leadership</h2>
+            </div>
+            
+            <div class="certifications-grid">
+                <!-- Cert 1 -->
+                <div class="cert-card reveal delay-100">
+                    <div class="cert-icon">📜</div>
+                    <h3 class="cert-title">Artificial Intelligence</h3>
+                    <span class="cert-issuer">Infosys Springboard</span>
+                </div>
+                <!-- Cert 2 -->
+                <div class="cert-card reveal delay-200">
+                    <div class="cert-icon">🤖</div>
+                    <h3 class="cert-title">Generative Models for Developers</h3>
+                    <span class="cert-issuer">NVIDIA AI Frameworks</span>
+                </div>
+                <!-- Cert 3 -->
+                <div class="cert-card reveal delay-300">
+                    <div class="cert-icon">🔮</div>
+                    <h3 class="cert-title">Introduction to OpenAI GPT Models</h3>
+                    <span class="cert-issuer">Infosys Springboard</span>
+                </div>
+                <!-- Cert 4 -->
+                <div class="cert-card reveal delay-400">
+                    <div class="cert-icon">💼</div>
+                    <h3 class="cert-title">Full Stack Development Internship</h3>
+                    <span class="cert-issuer">Skillchemy</span>
+                </div>
+            </div>
+            
+            <!-- Leadership Cards (styled like certifications grid) -->
+            <div class="section-header reveal" style="margin-top: 5rem; margin-bottom: 2.5rem;">
+                <h3 class="section-title" style="font-size: 1.5rem; letter-spacing: 1px;">Leadership Roles</h3>
+            </div>
+            
+            <div class="certifications-grid">
+                <div class="cert-card reveal delay-100" style="grid-column: span 2;">
+                    <div class="cert-icon">⚡</div>
+                    <h3 class="cert-title">Marketing Vice Chair</h3>
+                    <span class="cert-issuer">Association for Computing Machinery (ACM) - KPRIET Student Chapter</span>
+                    <p style="color: var(--color-subtext); font-size: 0.9rem; margin-top: 10px;">
+                        Spearheaded marketing campaigns and logistics operations for **Nunnarva'25** (500+ participants) and coordinated the **CICADA'25** Hackathon (200+ teams). Drove chapter member growth by 40% through targeted technical workshops and seminars.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="glass-card reveal">
+                <div class="section-header">
+                    <h2 class="section-title">Get In Touch</h2>
+                </div>
+                
+                <div class="contact-grid">
+                    <!-- Contact Details Panel -->
+                    <div class="contact-info-panel">
+                        <p class="contact-intro-text">
+                            I am open to internships, co-ops, full-time placements, and project collaboration opportunities in AI engineering, Machine Learning pipelines, and backend service development. Let's connect!
+                        </p>
+                        
+                        <div class="contact-details-list">
+                            <!-- Email -->
+                            <div class="contact-detail-item">
+                                <div class="contact-detail-icon">
+                                    <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zM22 6l-10 7L2 6"/></svg>
+                                </div>
+                                <div class="contact-detail-content">
+                                    <span class="contact-detail-label">Email</span>
+                                    <a href="mailto:dharnishv9361@gmail.com" class="contact-detail-value">dharnishv9361@gmail.com</a>
+                                </div>
+                            </div>
+                            <!-- Phone -->
+                            <div class="contact-detail-item">
+                                <div class="contact-detail-icon">
+                                    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                </div>
+                                <div class="contact-detail-content">
+                                    <span class="contact-detail-label">Phone</span>
+                                    <a href="tel:+919361476747" class="contact-detail-value">+91 9361476747</a>
+                                </div>
+                            </div>
+                            <!-- Location -->
+                            <div class="contact-detail-item">
+                                <div class="contact-detail-icon">
+                                    <svg viewBox="0 0 24 24"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
+                                </div>
+                                <div class="contact-detail-content">
+                                    <span class="contact-detail-label">Location</span>
+                                    <span class="contact-detail-value">Coimbatore, Tamil Nadu, India</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Socials -->
+                        <div class="contact-social-icons">
+                            <a href="https://github.com/DharnishV9361" target="_blank" class="contact-social-icon" aria-label="GitHub Link">
+                                <svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                            </a>
+                            <a href="https://linkedin.com/in/dharnishv" target="_blank" class="contact-social-icon" aria-label="LinkedIn Link">
+                                <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Form Box -->
+                    <form id="contact-form" class="contact-form" autocomplete="off">
+                        <div class="form-group">
+                            <input type="text" id="form-name" class="form-input" placeholder=" " required>
+                            <label for="form-name" class="form-label">Full Name</label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="email" id="form-email" class="form-input" placeholder=" " required>
+                            <label for="form-email" class="form-label">Email Address</label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea id="form-message" class="form-textarea" placeholder=" " required></textarea>
+                            <label for="form-message" class="form-label">Your Message</label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2.5" fill="none"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>
+                            <span>Send Message</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="footer-text">
+            <p>Designed & Handcrafted with <span class="footer-heart">❤️</span> by Dharnish V</p>
+            <p>Built with Pure HTML5, CSS3, & Vanilla JS</p>
+        </footer>
+    </main>
+
+    <!-- Back to Top Button -->
+    <div id="back-to-top" aria-label="Back to top button">
+        <svg viewBox="0 0 24 24">
+            <path d="M18 15l-6-6-6 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/script.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/typing.js"></script>
+</body>
+</html>

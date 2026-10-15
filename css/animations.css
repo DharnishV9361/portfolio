@@ -1,0 +1,111 @@
+/* ==========================================================================
+   ANIMATIONS.CSS - Keyframes & Smooth Transition Systems
+   ========================================================================== */
+
+/* --- Loading Spinner --- */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* --- Pulse Loader Text --- */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+        text-shadow: 0 0 5px rgba(0, 229, 255, 0.4);
+    }
+}
+
+/* --- Typing Cursor Blink --- */
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+/* --- Scroll Mouse Indicator Wheel --- */
+@keyframes scroll-wheel {
+    0% {
+        opacity: 0;
+        top: 8px;
+    }
+    30% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        top: 24px;
+    }
+}
+
+/* --- Heartbeat in Footer --- */
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25%, 60% {
+        transform: scale(1.15);
+    }
+}
+
+/* --- Floating Background Icons / Elements --- */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-15px) rotate(3deg);
+    }
+}
+
+.floating-icon {
+    animation: float 6s ease-in-out infinite;
+}
+
+.floating-icon-delayed {
+    animation: float 8s ease-in-out infinite;
+    animation-delay: 2s;
+}
+
+/* --- Scroll Reveal Animations --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1),
+                transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.reveal.reveal-left {
+    transform: translateX(-40px);
+}
+
+.reveal.reveal-right {
+    transform: translateX(40px);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal.reveal-left.active,
+.reveal.reveal-right.active {
+    transform: translateX(0);
+}
+
+/* --- Staggered Delay Helpers (For grids) --- */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }

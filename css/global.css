@@ -1,0 +1,352 @@
+/* ==========================================================================
+   GLOBAL.CSS - Core Design System & Tokens
+   ========================================================================== */
+
+/* --- Custom Variables (Theme Setup) --- */
+:root {
+    /* Primary Colors */
+    --color-primary: #00BCD4;
+    --color-primary-rgb: 0, 188, 212;
+
+    --color-secondary: #26C6DA;
+    --color-secondary-rgb: 38, 198, 218;
+
+    --color-accent: #80DEEA;
+    --color-accent-rgb: 128, 222, 234;
+
+    /* Backgrounds */
+    --color-bg: #F8FDFF;
+    --color-card: #FFFFFF;
+    --color-card-rgb: 255, 255, 255;
+
+    /* Text */
+    --color-text: #0F172A;
+    --color-subtext: #64748B;
+
+    /* Borders */
+    --color-border: #D6F4F8;
+
+    /* Glassmorphism */
+    --glass-bg: rgba(255, 255, 255, 0.78);
+    --glass-border: rgba(0, 188, 212, 0.18);
+    --glass-border-hover: rgba(0, 188, 212, 0.35);
+
+    --glass-shadow: rgba(15, 23, 42, 0.08);
+
+    --card-shadow: 0 10px 35px rgba(0, 188, 212, 0.10);
+
+    --glow-color: rgba(0, 188, 212, 0.15);
+
+    /* Sidebar */
+    --sidebar-width: 280px;
+    --header-mobile-height: 70px;
+
+    /* Transitions */
+    --transition-fast: .2s ease;
+    --transition-normal: .3s cubic-bezier(.25,.8,.25,1);
+    --transition-slow: .6s cubic-bezier(.25,1,.5,1);
+
+    /* Typography */
+    --font-primary: 'Outfit', 'Poppins', sans-serif;
+}
+
+/* ==========================================================================
+   RESET
+   ========================================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+    scrollbar-width:thin;
+    scrollbar-color:var(--color-primary) var(--color-bg);
+}
+
+body{
+    font-family:var(--font-primary);
+    background:var(--color-bg);
+    color:var(--color-text);
+    min-height:100vh;
+    overflow-x:hidden;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+}
+
+/* ==========================================================================
+   SCROLLBAR
+   ========================================================================== */
+
+::-webkit-scrollbar{
+    width:10px;
+    height:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#EDFDFE;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#9EEAF3;
+    border-radius:20px;
+    transition:var(--transition-fast);
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:var(--color-primary);
+}
+
+/* ==========================================================================
+   SCROLL PROGRESS BAR
+   ========================================================================== */
+
+#scroll-progress{
+    position:fixed;
+    top:0;
+    left:0;
+    height:4px;
+    width:0%;
+    background:linear-gradient(
+        90deg,
+        var(--color-primary),
+        var(--color-secondary)
+    );
+    z-index:2000;
+    box-shadow:0 0 12px rgba(0,188,212,.25);
+}
+
+/* ==========================================================================
+   CURSOR GLOW
+   ========================================================================== */
+
+#cursor-glow{
+    position:fixed;
+    top:0;
+    left:0;
+
+    width:400px;
+    height:400px;
+
+    background:radial-gradient(
+        circle,
+        rgba(0,188,212,.10) 0%,
+        rgba(0,188,212,.04) 30%,
+        transparent 70%
+    );
+
+    border-radius:50%;
+    pointer-events:none;
+    transform:translate(-50%,-50%);
+    z-index:9999;
+    transition:opacity var(--transition-normal);
+
+    opacity:0;
+}
+
+body:hover #cursor-glow{
+    opacity:1;
+}
+
+@media(max-width:1024px){
+
+    #cursor-glow{
+        display:none;
+    }
+
+}
+
+/* ==========================================================================
+   LOADING SCREEN
+   ========================================================================== */
+
+.loading-screen{
+
+    position:fixed;
+
+    inset:0;
+
+    background:var(--color-bg);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:3000;
+
+    transition:
+        opacity var(--transition-slow),
+        visibility var(--transition-slow);
+
+}
+
+.loading-screen.fade-out{
+
+    opacity:0;
+
+    visibility:hidden;
+
+}
+
+.loader-content{
+
+    text-align:center;
+
+    position:relative;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+}
+
+.loader-circle{
+
+    width:90px;
+
+    height:90px;
+
+    border:3px solid transparent;
+
+    border-top:3px solid var(--color-primary);
+
+    border-right:3px solid var(--color-secondary);
+
+    border-radius:50%;
+
+    animation:spin 1s linear infinite;
+
+    margin-bottom:25px;
+
+}
+
+.loader-logo{
+
+    position:absolute;
+
+    top:32px;
+
+    font-size:1.4rem;
+
+    font-weight:800;
+
+    color:var(--color-primary);
+
+    letter-spacing:1px;
+
+    text-shadow:0 0 8px rgba(0,188,212,.25);
+
+}
+
+.loader-text{
+
+    font-size:.8rem;
+
+    letter-spacing:4px;
+
+    text-transform:uppercase;
+
+    color:var(--color-subtext);
+
+    animation:pulse 1.5s ease-in-out infinite;
+
+}
+
+/* ==========================================================================
+   LAYOUT
+   ========================================================================== */
+
+.app-container{
+
+    display:flex;
+
+    min-height:100vh;
+
+}
+
+.main-content{
+
+    flex:1;
+
+    margin-left:var(--sidebar-width);
+
+    padding:0;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+/* ==========================================================================
+   GLOBAL ELEMENTS
+   ========================================================================== */
+
+a{
+
+    color:inherit;
+
+    text-decoration:none;
+
+    transition:color var(--transition-fast);
+
+}
+
+img{
+
+    max-width:100%;
+
+    height:auto;
+
+    display:block;
+
+}
+
+/* ==========================================================================
+   OPTIONAL GLOBAL STYLES
+   ========================================================================== */
+
+section{
+
+    background:transparent;
+
+}
+
+::selection{
+
+    background:#B2EBF2;
+
+    color:#003B49;
+
+}
+
+button{
+
+    font-family:inherit;
+
+}
+
+input,
+textarea{
+
+    font-family:inherit;
+
+}
+
+.card{
+
+    background:var(--color-card);
+
+    border:1px solid var(--color-border);
+
+    border-radius:18px;
+
+    box-shadow:var(--card-shadow);
+
+}
